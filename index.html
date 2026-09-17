@@ -6,14 +6,12 @@
     <title>Vérification de sécurité</title>
     
     <!-- Script officiel de Cloudflare Turnstile -->
-<script src="https://cloudflare.com" async defer></script>
+    <script src="https://cloudflare.com" async defer></script>
 
     <style>
         body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
         .captcha-screen { display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; }
         .box { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
-        
-        /* Cache le contenu du site par défaut */
         #main-content { display: none; }
     </style>
 </head>
@@ -25,7 +23,7 @@
             <h2>Vérification de sécurité</h2>
             <p>Veuillez cocher la case ci-dessous pour accéder au site.</p>
             
-            <!-- REMPLACEZ "0x4AAAAAAE6ik1WPQetOpfa1" PAR LA CLÉ COPIÉE SUR CLOUDFLARE -->
+            <!-- Votre clé de site Cloudflare -->
             <div class="cf-turnstile" 
                  data-sitekey="0x4AAAAAAE6ik1WPQetOpfa1" 
                  data-callback="onCaptchaSuccess">
@@ -36,18 +34,15 @@
     <!-- LE CONTENU DE VOTRE SITE ORIGINAL (Disque) -->
     <div id="main-content">
         
-        <!-- -------------------------------------------------------- -->
         <!-- COLLEZ TOUT LE CONTENU DE VOTRE SITE ORIGINAL ICI DEDANS -->
         <h1>Bienvenue sur votre espace Disk</h1>
         <p>Le contenu de votre page index.html d'origine va ici...</p>
-        <!-- -------------------------------------------------------- -->
 
     </div>
 
     <!-- Script JavaScript pour afficher le site après validation -->
     <script>
         function onCaptchaSuccess(token) {
-            // Si le jeton Cloudflare est valide, on masque le captcha et on affiche le site
             if (token) {
                 document.getElementById('captcha-container').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
